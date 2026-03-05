@@ -8,7 +8,7 @@ plugins {
   id("java-library")
   id("maven-publish")
   id("signing")
-  id("org.docbook.xsltng-gradle") version "0.5.0"
+  id("org.docbook.xsltng-gradle") version "0.6.0"
 }
 
 val docbookVersion = project.properties["docbookVersion"].toString()

@@ -10,8 +10,6 @@
 
   <cc:inline trim-whitespace="true"/>
 
-  <cc:graphviz dot="/opt/homebrew/bin/dot"/>
-
   <cc:visualizer name="silent"/>
 
   <cc:serialization content-type="application/xml"

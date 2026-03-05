@@ -1,0 +1,67 @@
+when:
+  - event: [push, tag]
+    branch: main
+
+clone:
+  git:
+    image: woodpeckerci/plugin-git
+    settings:
+      recursive: true
+
+steps:
+  - name: build-and-test
+    image: xmlcalabash-build
+    volumes:
+      - builder-home:/home/builder
+    commands:
+      # This build has to run as a non-root user
+      - sudo chown -R builder:builder .
+      # Avoid Invalid Java installation found at '/home/builder/.gradle/.tmp/jdks/... ???
+      - rm -rf /home/builder/.gradle/.tmp
+      # Make a local copy of the gradle properties
+      - mkdir -p ./gradle-build/.gradle
+      - cp /home/builder/.gradle/gradle.properties ./gradle-build/.gradle/
+
+  - name: Build docbook
+    image: xmlcalabash-build
+    volumes:
+      - builder-home:/home/builder
+    environment:
+      GRADLE_USER_HOME: ./gradle-build/.gradle
+    commands:
+      - ./gradlew clean release mavenReleaseArtifact
+
+  - name: publish-release
+    image: woodpeckerci/plugin-release
+    when: 
+      - event: tag
+    settings:
+      title: ${CI_COMMIT_TAG}
+      files:
+        - 'schemas/sdocbook/build/distributions/sdocbook-${CI_COMMIT_TAG}.zip'
+        - 'schemas/website/build/distributions/website-${CI_COMMIT_TAG}.zip'
+        - 'schemas/slides/build/distributions/slides-${CI_COMMIT_TAG}.zip'
+        - 'schemas/publishers/build/distributions/publishers-${CI_COMMIT_TAG}.zip'
+        - 'schemas/docbook/build/distributions/docbook-${CI_COMMIT_TAG}.zip'
+        - 'schemas/dbforms/build/distributions/dbforms-${CI_COMMIT_TAG}.zip'
+      api_key:
+        from_secret: ACCESS_TOKEN
+
+  - name: publish-maven
+    image: xmlcalabash-build
+    when: 
+      - event: tag
+    volumes:
+      - builder-home:/home/builder
+    environment:
+      GRADLE_USER_HOME: ./gradle-build/.gradle
+      BEARER:
+        from_secret: BEARER_TOKEN
+    commands:
+      - if [ "$CI_COMMIT_TAG" != "" ]; then
+      -   "curl --header \"Authorization: Bearer $${BEARER}\" --form bundle=@schemas/docbook/build/distributions/docbook-maven-${CI_COMMIT_TAG}.zip https://central.sonatype.com/api/v1/publisher/upload"
+      -   "curl --header \"Authorization: Bearer $${BEARER}\" --form bundle=@schemas/publishers/build/distributions/publishers-maven-${CI_COMMIT_TAG}.zip https://central.sonatype.com/api/v1/publisher/upload"
+      - else
+      -   echo "Not publishing this commit"
+      - fi
+
