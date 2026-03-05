@@ -387,6 +387,17 @@ tasks.jar {
   }
 }
 
+val javadocJar = tasks.register<Jar>("javadocJar") {
+  dependsOn("javadoc")
+  archiveClassifier = "javadoc"
+  from(tasks.javadoc)
+}
+
+val sourcesJar by tasks.registering(Jar::class) {
+  archiveClassifier = "sources"
+  from(sourceSets.main.get().allSource)
+}
+
 tasks.register<Zip>("mavenReleaseArtifact") {
   dependsOn("publish")
 
@@ -429,6 +440,8 @@ publishing {
       artifactId = "schemas-docbook"
       version = docbookVersion
       from(components["java"])
+      artifact(sourcesJar.get())
+      artifact(javadocJar.get())
     }
   }
 
@@ -437,6 +450,10 @@ publishing {
       url = uri(layout.buildDirectory.dir("maven"))
     }
   }
+}
+
+signing {
+  sign(publishing.publications["mavenJava"])
 }
 
 // ============================================================
