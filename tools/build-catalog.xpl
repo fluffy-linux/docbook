@@ -8,8 +8,6 @@
   <p:option name="schema" as="xs:string" required="true"/>
   <p:option name="title" as="xs:string" required="true"/>
   <p:option name="version" as="xs:string" required="true"/>
-  <p:option name="oasisVersion" as="xs:string" required="true"/>
-  <p:option name="oasisRelease" as="xs:string" required="true"/>
   <p:option name="prefix" as="xs:string" select="'xml'"/>
 
   <p:directory-list path="{$path}/build/{$schema}-{$version}" max-depth="unbounded">
@@ -22,9 +20,7 @@
                                     || $schema || '-' || $version || '/',
                             'version': $version,
                             'title': $title,
-                            'prefix': $prefix,
-                            'oasisVersion': $oasisVersion,
-                            'oasisRelease': $oasisRelease }">
+                            'prefix': $prefix }">
     <p:with-input port="stylesheet" href="catalog.xsl"/>
   </p:xslt>
 </p:declare-step>

@@ -1,5 +1,5 @@
 <t:test-case xmlns:t="http://docbook.org/ns/tests"
-             relaxng="pass" schematron="pass">
+             relaxng="pass" schematron="fail">
 <t:document>
 <article xmlns="http://docbook.org/ns/docbook" version="5.0">
 <info>

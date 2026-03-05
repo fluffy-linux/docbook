@@ -7,7 +7,7 @@ package org.docbook.schemas.publishers;
 // some tests to make sure the testing version is correct.
 
 public final class Publishers {
-  public static final String[] VERSIONS = {"1.0", "5.2"};
+  public static final String[] VERSIONS = {"1.0", "5.2", "5.2.1"};
 
   public static final String PUBLISHERS_CATALOG_PATH = "/org/docbook/schemas/publishers/catalog.xml";
 
@@ -21,17 +21,20 @@ public final class Publishers {
 
   public static final String PUBLISHERS_1_0_SCH_PATH = "/org/docbook/schemas/docbook/1.0/sch/publishers.sch";
 
-  public static final String PUBLISHERS_5_2_RNG_PATH = "/org/docbook/schemas/publishers/5.2b10-SNAPSHOT/rng/publishers.rng";
 
-  public static final String PUBLISHERS_5_2_RNC_PATH = "/org/docbook/schemas/publishers/5.2b10-SNAPSHOT/rng/publishers.rnc";
+  public static final String PUBLISHERS_5_2_RNG_PATH = "/org/docbook/schemas/publishers/5.2/rng/publishers.rng";
 
-  public static final String PUBLISHERS_5_2_SCH_PATH = "/org/docbook/schemas/publishers/5.2b10-SNAPSHOT/sch/publishers.sch";
+  public static final String PUBLISHERS_5_2_RNC_PATH = "/org/docbook/schemas/publishers/5.2/rng/publishers.rnc";
 
-  public static final String PUBLISHERS_5_2b10_SNAPSHOT_RNG_PATH = "/org/docbook/schemas/publishers/5.2b10-SNAPSHOT/rng/publishers.rng";
+  public static final String PUBLISHERS_5_2_SCH_PATH = "/org/docbook/schemas/publishers/5.2/sch/publishers.sch";
 
-  public static final String PUBLISHERS_5_2b10_SNAPSHOT_RNC_PATH = "/org/docbook/schemas/publishers/5.2b10-SNAPSHOT/rng/publishers.rnc";
 
-  public static final String PUBLISHERS_5_2b10_SNAPSHOT_SCH_PATH = "/org/docbook/schemas/publishers/5.2b10-SNAPSHOT/sch/publishers.sch";
+  public static final String PUBLISHERS_5_2_1_RNG_PATH = "/org/docbook/schemas/publishers/5.2.1/rng/publishers.rng";
+
+  public static final String PUBLISHERS_5_2_1_RNC_PATH = "/org/docbook/schemas/publishers/5.2.1/rng/publishers.rnc";
+
+  public static final String PUBLISHERS_5_2_1_SCH_PATH = "/org/docbook/schemas/publishers/5.2.1/sch/publishers.sch";
+
 
   private Publishers() {
   }

@@ -106,6 +106,16 @@ div {
    db.callout =
       [
          s:pattern [
+            s:title [ "Callout cross reference idref constraint" ]
+            s:rule [
+               context = "db:callout[@arearefs]"
+               s:assert [
+                  test = "every $id in tokenize(current()/@arearefs) satisfies exists(//*[@xml:id = $id])"
+                  "Each token in @arearefs must be an idref to an element in the document."
+               ]
+            ]
+         ]
+         s:pattern [
             s:title [ "Callout cross reference constraint" ]
             s:rule [
                context = "db:callout[@arearefs]"
@@ -358,6 +368,28 @@ div {
     & db.coref.label.attribute?
 
    db.coref =
+      [
+         s:pattern [
+            s:title [ "Coref cross reference idref constraint" ]
+            s:rule [
+               context = "db:coref[@linkend]"
+               s:assert [
+                  test="exists(//*[@xml:id=current()/@linkend])"
+                  "@linkend on coref must point to an xml:id"
+               ]
+            ]
+         ]
+         s:pattern [
+            s:title [ "Coref cross reference constraint" ]
+            s:rule [
+               context = "db:coref[@linkend]"
+               s:assert [
+                  test="every $id in @linkend satisfies (every $ar in //*[@xml:id = $id] satisfies (local-name($ar) = 'co') and namespace-uri($ar) = 'http://docbook.org/ns/docbook')"
+                  "@linkend on coref must point to a co."
+               ]
+            ]
+         ]
+      ]
       element coref {
          db.coref.attlist,
          empty

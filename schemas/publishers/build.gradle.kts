@@ -38,6 +38,7 @@ tasks.register("schemas") {
 
 val copyBuildArtifacts = tasks.register("copyBuildArtifacts") {
   dependsOn(publishers)
+  inputs.files(publishers)
   outputs.dir(layout.buildDirectory.dir("publishers-${docbookVersion}"))
 
   doLast {
@@ -74,9 +75,7 @@ val stage = tasks.register<DocBookPipeline>("stage") {
       "schema" to "publishers",
       "prefix" to "publishers",
       "version" to docbookVersion,
-      "title" to "XML Catalog for DocBook Publishers V${docbookVersion}",
-      "oasisVersion" to docbookVersion,
-      "oasisRelease" to "os"
+      "title" to "XML Catalog for DocBook Publishers V${docbookVersion}"
   )
 }
 
@@ -109,6 +108,8 @@ val release = tasks.register<Zip>("release") {
   into("publishers-${docbookVersion}/")
   archiveFileName = "publishers-${docbookVersion}.zip"
 }
+
+
 
 // ============================================================
 
@@ -180,10 +181,10 @@ tasks.jar {
 }
 
 tasks.register<Zip>("mavenReleaseArtifact") {
-  dependsOn("jar")
+  dependsOn("publish")
 
-  from(layout.buildDirectory.dir("maven-o-matic"))
-  archiveFileName = "publishers-${docbookVersion}.zip"
+  from(layout.buildDirectory.dir("maven"))
+  archiveFileName = "publishers-maven-${docbookVersion}.zip"
 }
 
 publishing {
