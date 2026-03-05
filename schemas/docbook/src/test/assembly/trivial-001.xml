@@ -1,0 +1,6 @@
+<t:test-case xmlns:t="http://docbook.org/ns/tests"
+             relaxng="fail" schematron="pass">
+<t:document>
+<doc/>
+</t:document>
+</t:test-case>

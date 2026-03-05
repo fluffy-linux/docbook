@@ -9,7 +9,7 @@
 		xmlns:html="http://www.w3.org/1999/xhtml"
 		xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
 		exclude-result-prefixes="exsl ctrl db dbx html"
-                version="1.0">
+                version="3.0">
 
 <xsl:output method="xml" encoding="utf-8" indent="no"/>
 <xsl:strip-space elements="*"/>

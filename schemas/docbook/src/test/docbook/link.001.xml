@@ -1,0 +1,19 @@
+<t:test-case xmlns:t="http://docbook.org/ns/tests"
+             relaxng="pass" schematron="pass">
+<t:document>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         version="5.0">
+<title>Article wrapper</title>
+
+<para>This article tests <tag>link</tag> hyphenation.</para>
+
+<para>This is a really long URI with explicit discretionary hyphens:
+<link xlink:href="http://www.example.com/this/is/really/long/for/no/good/reason/except/to/test/what/happens/with/really/long/URIs/-/because/they/are/a/good/test/for/discretionary/hyphens/">http:/&#xAD;/&#xAD;www.example.com/&#xAD;this/&#xAD;is/&#xAD;really/&#xAD;long/&#xAD;for/&#xAD;no/&#xAD;good/&#xAD;reason/&#xAD;except/&#xAD;to/&#xAD;test/&#xAD;what/&#xAD;happens/&#xAD;with/&#xAD;really/&#xAD;long/&#xAD;URIs/&#xAD;-/&#xAD;because/&#xAD;they/&#xAD;are/&#xAD;a/&#xAD;good/&#xAD;test/&#xAD;for/&#xAD;discretionary/&#xAD;hyphens/</link>.</para>
+
+<para>This is a really long URI without explicit discretionary hyphens:
+<link xlink:href="http://www.example.com/this/is/really/long/for/no/good/reason/except/to/test/what/happens/with/really/long/URIs/-/because/they/are/a/good/test/for/discretionary/hyphens/"/>.</para>
+
+</article>
+</t:document>
+</t:test-case>

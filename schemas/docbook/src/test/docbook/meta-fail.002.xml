@@ -1,0 +1,15 @@
+<t:test-case xmlns:t="http://docbook.org/ns/tests"
+             relaxng="fail" schematron="pass">
+<t:document>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0">
+<info>
+  <title>Chapter Title</title>
+  <abstract>
+    <para>This is my abstract.</para>
+  </abstract>
+  <meta name="one" content="something"><phrase/></meta>
+</info>
+<para>Some text.</para>
+</chapter>
+</t:document>
+</t:test-case>

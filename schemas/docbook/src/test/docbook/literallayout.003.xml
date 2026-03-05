@@ -1,0 +1,21 @@
+<t:test-case xmlns:t="http://docbook.org/ns/tests"
+             relaxng="pass" schematron="pass">
+<t:document>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0">
+<title>Article wrapper</title>
+
+<literallayout>LiteralLayout: This is a test
+  Only a test.
+Had this been a real emegency,
+  We would have fled in terror
+And you would not have been informed.</literallayout>
+
+<literallayout class="monospaced">LiteralLayout(monospaced): This is a test
+  Only a test.
+Had this been a real emegency,
+  We would have fled in terror
+And you would not have been informed.</literallayout>
+
+</article>
+</t:document>
+</t:test-case>

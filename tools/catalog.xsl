@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:c="http://www.w3.org/ns/xproc-step"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" 
-                exclude-result-prefixes="xs"
+                exclude-result-prefixes="c xs"
                 version="3.0">
 
 <xsl:output method="xml" encoding="utf-8" indent="yes"/>
 
+<xsl:param name="path" as="xs:string"/>
 <xsl:param name="title" as="xs:string" select="'XML Catalog'"/>
 <xsl:param name="version" as="xs:string" select="'UNKNOWN'"/>
 <xsl:param name="prefix" as="xs:string" select="'xml'"/>
 <xsl:param name="oasisVersion" as="xs:string" select="''"/>
 <xsl:param name="oasisRelease" as="xs:string" select="''"/>
-<xsl:param name="uris" as="xs:string" required="yes"/>
 
 <xsl:variable name="files"
-              select="tokenize(normalize-space(unparsed-text($uris)), '\s+')
-                      [. != 'catalog.xml']"/>
+              select="//c:file/@xml:base ! substring(., string-length($path)+1)"/>
 
 <xsl:template match="/">
   <xsl:variable name="dots" select="'...........................................................'"/>

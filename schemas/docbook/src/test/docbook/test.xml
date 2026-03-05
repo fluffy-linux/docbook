@@ -1,0 +1,14 @@
+<t:test-case xmlns:t="http://docbook.org/ns/tests"
+             relaxng="pass" schematron="pass">
+<t:document>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0">
+<title>Article wrapper</title>
+<procedure>
+<title>Free</title>
+<step>
+<para>content</para>
+</step>
+</procedure>
+</article>
+</t:document>
+</t:test-case>

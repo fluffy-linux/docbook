@@ -1,0 +1,23 @@
+<t:test-case xmlns:t="http://docbook.org/ns/tests"
+             relaxng="pass" schematron="pass">
+<t:document>
+<slides xml:lang="en"
+        xmlns="http://docbook.org/ns/docbook"
+        xmlns:h="http://www.w3.org/1999/xhtml"
+        xmlns:xi="http://www.w3.org/2001/XInclude"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="5.0-slides">
+<info>
+  <title>Sample slides</title>
+  <h:meta name="localStorage.key" content="dbslideskey"/>
+  <h:meta name="slides.timer" content="true"/>
+  <h:meta name="slides.timersecs" content="false"/>
+</info>
+
+<foil>
+<title>Sample slide</title>
+<para>Text.</para>
+</foil>
+</slides>
+</t:document>
+</t:test-case>

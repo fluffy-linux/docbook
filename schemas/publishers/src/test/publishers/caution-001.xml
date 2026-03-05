@@ -1,0 +1,16 @@
+<t:test-case xmlns:t="http://docbook.org/ns/tests"
+             relaxng="pass" schematron="pass">
+<t:document>
+<article xmlns="http://docbook.org/ns/docbook"
+         version="publishers-5.2">
+<info>
+<title>Article title</title>
+</info>
+
+<caution>
+<para>Admonitions got added to publishers.</para>
+</caution>
+
+</article>
+</t:document>
+</t:test-case>

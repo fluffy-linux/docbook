@@ -4,8 +4,7 @@
 		exclude-result-prefixes="xs"
                 version="2.0">
 
-<xsl:output method="xml" omit-xml-declaration="yes" indent="yes"/>
-
+<xsl:output method="xml" omit-xml-declaration="yes" indent="no"/>
 <xsl:strip-space elements="*"/>
 
 <xsl:variable name="all_nsdecl" as="xs:string*">

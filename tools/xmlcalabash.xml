@@ -1,0 +1,26 @@
+<cc:xml-calabash xmlns:cc="https://xmlcalabash.com/ns/configuration"
+                 line-numbering="true"
+                 licensed="false">
+
+  <cc:mimetype content-type="application/xml" extensions="rnd"/>
+
+  <cc:message-reporter buffer-size="50"/>
+
+  <cc:threading count="1"/>
+
+  <cc:inline trim-whitespace="true"/>
+
+  <cc:graphviz dot="/opt/homebrew/bin/dot"/>
+
+  <cc:visualizer name="silent"/>
+
+  <cc:serialization content-type="application/xml"
+                    indent="true"
+                    omit-xml-declaration="false"/>
+
+  <cc:serialization content-type="text/html"
+                    method="html"
+                    omit-xml-declaration="true"
+                    html-version="5"/>
+
+</cc:xml-calabash>

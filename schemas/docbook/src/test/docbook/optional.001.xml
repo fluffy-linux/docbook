@@ -1,0 +1,11 @@
+<t:test-case xmlns:t="http://docbook.org/ns/tests"
+             relaxng="pass" schematron="pass">
+<t:document>
+<article xmlns="http://docbook.org/ns/docbook" version="5.1">
+<title>Article wrapper</title>
+
+<para>It is now possible to have <optional><optional>items</optional></optional>.</para>
+
+</article>
+</t:document>
+</t:test-case>

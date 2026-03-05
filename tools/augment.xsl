@@ -8,7 +8,7 @@
                 exclude-result-prefixes="ctrl dbx"
                 version="2.0">
 
-  <xsl:output method="xml" encoding="utf-8" indent="yes"/>
+  <xsl:output method="xml" encoding="utf-8" indent="no"/>
   <xsl:strip-space elements="*"/>
 
   <xsl:key name="defs" match="rng:define" use="@name"/>
