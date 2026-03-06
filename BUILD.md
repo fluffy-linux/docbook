@@ -38,7 +38,7 @@ The most useful build targets are:
 * `schemas` to build the schemas
 * `schematest` to run the tests
 * `release` to build the release artifact
-* `mavenReleaseArtifact` to build the Maven release artifact
+* `mavenRelease` to build the Maven release artifact
 * `clean` to delete build artifacts
 
 To target a specific schema, run `schemas:{vocabulary}:{target}`. For example,

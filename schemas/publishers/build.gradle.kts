@@ -191,7 +191,7 @@ val sourcesJar by tasks.registering(Jar::class) {
   from(sourceSets.main.get().allSource)
 }
 
-tasks.register<Zip>("mavenReleaseArtifact") {
+tasks.register<Zip>("mavenRelease") {
   dependsOn("publish")
 
   from(layout.buildDirectory.dir("maven"))
