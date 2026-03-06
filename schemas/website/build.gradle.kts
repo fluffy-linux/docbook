@@ -25,7 +25,6 @@ val website = tasks.register<DocBookPipeline>("buildWebsite") {
   params = mapOf(
       "path" to "${layout.projectDirectory}",
       "schema" to "website",
-      "relaxng" to "website",
       "release" to "DocBook Website V${docbookVersion}"
   )
 }
@@ -40,7 +39,6 @@ val websitefull = tasks.register<DocBookPipeline>("buildWebsiteFull") {
   params = mapOf(
       "path" to "${layout.projectDirectory}",
       "schema" to "website-full",
-      "relaxng" to "website-full",
       "release" to "DocBook Website Full V${docbookVersion}"
   )
 }

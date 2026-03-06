@@ -11,14 +11,13 @@
   <p:option name="path" as="xs:string" required="true"/>
   <p:option name="schema" as="xs:string" required="true"/>
   <p:option name="release" as="xs:string" required="true"/>
-  <p:option name="relaxng" as="xs:string" select="'relaxng'"/>
   
   <!-- Cleanup any previous run -->
   <p:file-delete name="del" href="{$path}/build/tmp/src/{$schema}" recursive="true"/>
   <p:file-mkdir name="mkdir" depends="del" href="{$path}/build/tmp/src/{$schema}"/>
 
   <cx:trang-files name="rnc-to-rng" p:depends="mkdir"
-                  source-schema="{$path}/src/main/{$relaxng}/{$schema}.rnc"
+                  source-schema="{$path}/src/main/{$schema}/{$schema}.rnc"
                   result-schema="{$path}/build/tmp/src/{$schema}/{$schema}.rng"/>
   <p:sink/>
 

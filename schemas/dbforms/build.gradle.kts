@@ -16,7 +16,7 @@ configure<DocBookExtension> {
 }
 
 val dbforms = tasks.register<DocBookPipeline>("builddbforms") {
-  inputs.dir(layout.projectDirectory.file("src/main/relaxng"))
+  inputs.dir(layout.projectDirectory.file("src/main/dbforms"))
   inputs.dir(layout.projectDirectory.file("../../tools"))
   outputs.dir(layout.buildDirectory.dir("tmp/dbforms"))
 

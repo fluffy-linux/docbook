@@ -28,7 +28,6 @@ val docbook = tasks.register<DocBookPipeline>("buildDocBook") {
   params = mapOf(
       "path" to "${layout.projectDirectory}",
       "schema" to "docbook",
-      "relaxng" to "docbook",
       "release" to "DocBook V${docbookVersion}"
   )
 }
@@ -43,7 +42,6 @@ val docbookxi = tasks.register<DocBookPipeline>("buildDocBookXi") {
   params = mapOf(
       "path" to "${layout.projectDirectory}",
       "schema" to "docbookxi",
-      "relaxng" to "docbookxi",
       "release" to "DocBook V${docbookVersion}"
   )
 }
@@ -58,7 +56,6 @@ val assembly = tasks.register<DocBookPipeline>("buildAssembly") {
   params = mapOf(
       "path" to "${layout.projectDirectory}",
       "schema" to "assembly",
-      "relaxng" to "assembly",
       "release" to "DocBook Assembly V${docbookVersion}"
   )
 }
@@ -73,7 +70,6 @@ val assemblyxi = tasks.register<DocBookPipeline>("buildAssemblyXi") {
   params = mapOf(
       "path" to "${layout.projectDirectory}",
       "schema" to "assemblyxi",
-      "relaxng" to "assemblyxi",
       "release" to "DocBook Assembly V${docbookVersion}"
   )
 }
@@ -88,7 +84,6 @@ val dbits = tasks.register<DocBookPipeline>("buildDocBookITS") {
   params = mapOf(
       "path" to "${layout.projectDirectory}",
       "schema" to "dbits",
-      "relaxng" to "dbits",
       "release" to "DocBook ITS V${docbookVersion}"
   )
 }
@@ -103,7 +98,6 @@ val dbitsxi = tasks.register<DocBookPipeline>("buildDocBookITSxi") {
   params = mapOf(
       "path" to "${layout.projectDirectory}",
       "schema" to "dbitsxi",
-      "relaxng" to "dbitsxi",
       "release" to "DocBook ITS V${docbookVersion}"
   )
 }
