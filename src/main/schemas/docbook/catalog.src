@@ -3,10 +3,6 @@
 
   <group xml:base="@@DBVER@@/">
     <delegateURI
-        uriStartString="https://docs.oasis-open.org/docbook/docbook/v@@DBVER@@/"
-        catalog="catalog.xml"/>
-
-    <delegateURI
         uriStartString="https://docbook.org/xml/@@DBVER@@/"
         catalog="catalog.xml"/>
 
@@ -15,18 +11,22 @@
         catalog="catalog.xml"/>
   </group>
 
-  <group xml:base="@@DBVER@@/">
-    <delegateURI
-        uriStartString="https://docs.oasis-open.org/docbook/docbook/v5.2/"
-        catalog="catalog.xml"/>
+  <group xml:base="5.2/">
+    <rewriteURI
+        uriStartString="https://docs.oasis-open.org/docbook/docbook/v5.2/os/schemas/"
+        rewritePrefix="./"/>
 
-    <delegateURI
+    <rewriteURI
+        uriStartString="https://www.oasis-open.org/docbook/xml/5.2/"
+        rewritePrefix="./"/>
+
+    <rewriteURI
         uriStartString="https://docbook.org/xml/5.2/"
-        catalog="catalog.xml"/>
+        rewritePrefix="./"/>
 
-    <delegateURI
+    <rewriteURI
         uriStartString="https://cdn.docbook.org/schema/5.2/"
-        catalog="catalog.xml"/>
+        rewritePrefix="./"/>
   </group>
 
   <group xml:base="5.1/">

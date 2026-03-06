@@ -147,6 +147,12 @@ val docbookReleaseNotes = tasks.register<DocBookPipeline>("docbookReleaseNotes")
 
 val copyBuildArtifacts = tasks.register("copyBuildArtifacts") {
   dependsOn(docbook, docbookxi, assembly, assemblyxi, dbits, dbitsxi, docbookReleaseNotes)
+  inputs.files(docbook)
+  inputs.files(docbookxi)
+  inputs.files(assembly)
+  inputs.files(assemblyxi)
+  inputs.files(dbits)
+  inputs.files(dbitsxi)
   outputs.dir(layout.buildDirectory.dir("docbook-${docbookVersion}"))
 
   doLast {
@@ -192,9 +198,7 @@ val stage = tasks.register<DocBookPipeline>("stage") {
       "path" to "${layout.projectDirectory}",
       "schema" to "docbook",
       "version" to docbookVersion,
-      "title" to "XML Catalog for DocBook V${docbookVersion}",
-      "oasisVersion" to docbookVersion,
-      "oasisRelease" to "os"
+      "title" to "XML Catalog for DocBook V${docbookVersion}"
   )
 }
 
@@ -383,11 +387,22 @@ tasks.jar {
   }
 }
 
-tasks.register<Zip>("mavenReleaseArtifact") {
-  dependsOn("jar")
+val javadocJar = tasks.register<Jar>("javadocJar") {
+  dependsOn("javadoc")
+  archiveClassifier = "javadoc"
+  from(tasks.javadoc)
+}
 
-  from(layout.buildDirectory.dir("maven-o-matic"))
-  archiveFileName = "docbook-${docbookVersion}.zip"
+val sourcesJar by tasks.registering(Jar::class) {
+  archiveClassifier = "sources"
+  from(sourceSets.main.get().allSource)
+}
+
+tasks.register<Zip>("mavenReleaseArtifact") {
+  dependsOn("publish")
+
+  from(layout.buildDirectory.dir("maven"))
+  archiveFileName = "docbook-maven-${docbookVersion}.zip"
 }
 
 publishing {
@@ -425,6 +440,8 @@ publishing {
       artifactId = "schemas-docbook"
       version = docbookVersion
       from(components["java"])
+      artifact(sourcesJar.get())
+      artifact(javadocJar.get())
     }
   }
 
@@ -433,6 +450,10 @@ publishing {
       url = uri(layout.buildDirectory.dir("maven"))
     }
   }
+}
+
+signing {
+  sign(publishing.publications["mavenJava"])
 }
 
 // ============================================================

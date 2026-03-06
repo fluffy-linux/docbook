@@ -12,8 +12,6 @@
 <xsl:param name="title" as="xs:string" select="'XML Catalog'"/>
 <xsl:param name="version" as="xs:string" select="'UNKNOWN'"/>
 <xsl:param name="prefix" as="xs:string" select="'xml'"/>
-<xsl:param name="oasisVersion" as="xs:string" select="''"/>
-<xsl:param name="oasisRelease" as="xs:string" select="''"/>
 
 <xsl:variable name="files"
               select="//c:file/@xml:base ! substring(., string-length($path)+1)"/>
@@ -33,9 +31,9 @@
     <xsl:text>&#10;</xsl:text>
     <xsl:text>&#10;</xsl:text>
     <xsl:comment>
- Please direct all questions, bug reports, or suggestions for changes
- to the docbook-comment@lists.oasis-open.org mailing list. For more
- information, see http://www.oasis-open.org/.
+ Please direct all questions, bug reports, or suggestions for changes to the
+ docbook@lists.docbook.org mailing list. For more information, see
+ http://www.docbook.org/.
 </xsl:comment>
     <xsl:text>&#10;</xsl:text>
     <xsl:text>&#10;</xsl:text>
@@ -51,48 +49,6 @@
     <xsl:text>&#10;</xsl:text>
     <xsl:comment> ............................................................ </xsl:comment>
     <xsl:text>&#10;</xsl:text>
-
-    <xsl:if test="$oasisVersion != '' and $oasisRelease != ''">
-        <!-- We don't have official URIs for Publishers yet...only output
-        the official URs for DocBook -->
-      <xsl:if test="$prefix = 'xml'">
-        <xsl:call-template name="catalog-files">
-          <xsl:with-param name="comment" select="'The official OASIS URIs'"/>
-          <xsl:with-param name="root"
-                          select="'docs.oasis-open.org/docbook/docbook/v' || $oasisVersion || '/' || $oasisRelease"/>
-        </xsl:call-template>
-      </xsl:if>
-
-      <xsl:if test="$oasisVersion != $version">
-        <xsl:call-template name="catalog-files">
-          <xsl:with-param name="comment" select="'The docbook.org URIs'"/>
-          <xsl:with-param name="root"
-                          select="'docbook.org/' || $prefix || '/' || $oasisVersion"/>
-        </xsl:call-template>
-
-        <xsl:call-template name="catalog-files">
-          <xsl:with-param name="comment" select="'The www.docbook.org URIs (for completeness)'"/>
-          <xsl:with-param name="root"
-                          select="'www.docbook.org/' || $prefix || '/' || $oasisVersion"/>
-        </xsl:call-template>
-
-        <xsl:call-template name="catalog-files">
-          <xsl:with-param name="comment" select="'The CDN schemas'"/>
-          <xsl:with-param name="root"
-                          select="if ($prefix = 'xml')
-                                             then 'cdn.docbook.org/schema/' || $oasisVersion
-                                             else 'cdn.docbook.org/schema/' || $prefix || '-' || $oasisVersion"/>
-          <!-- There shouldn't be any http://cdn URIs. -->
-          <xsl:with-param name="schemes" select="'https'"/>
-        </xsl:call-template>
-      </xsl:if>
-    </xsl:if>
-
-    <xsl:call-template name="catalog-files">
-      <xsl:with-param name="comment" select="'The historical OASIS URIs (for backwards compatibility)'"/>
-      <xsl:with-param name="root"
-                      select="'www.oasis-open.org/docbook/' || $prefix || '/' || $version"/>
-    </xsl:call-template>
 
     <xsl:call-template name="catalog-files">
       <xsl:with-param name="comment" select="'The docbook.org URIs'"/>

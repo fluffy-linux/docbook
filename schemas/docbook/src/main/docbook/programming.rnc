@@ -399,7 +399,7 @@ div {
          db.classsynopsis.info,
          db.classsynopsisinfo*,
          db.templatename*,
-         db.oo.inlines,
+         db.oo.inlines+,
          (db.template
           | db.ooexception
           | db.methodsynopsis

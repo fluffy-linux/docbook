@@ -2,8 +2,8 @@
 	 xmlns:xlink="http://www.w3.org/1999/xlink"
          version='5.2'>
 <info>
-<title>DocBook 5.2 CR5 Release Notes</title>
-<pubdate>2023-02-09</pubdate>
+<title>DocBook 5.2.1 Release Notes</title>
+<pubdate>2026-03-05</pubdate>
 </info>
 
 <section>
@@ -13,37 +13,55 @@
 books and papers about computer hardware and software (though it is by
 no means limited to these applications).</para>
 
-<para>The <link
-xlink:href="https://www.oasis-open.org/committees/docbook/">DocBook
-Technical Committee</link> at OASIS Open maintains the DocBook schema.
-Starting with V5.0, DocBook is normatively available as a RELAX NG
-Schema (with some additional Schematron assertions). DocBook builds on
-existing XML technologies: it uses XLink for linking, W3C XML
-Datatypes for atomic data types, and supports the use of XInclude for
-transclusion.</para>
+<para>For many years, DocBook was maintained by the
+<link xlink:href="https://www.oasis-open.org/committees/docbook/">DocBook
+Technical Committee</link> at OASIS Open. That TC closed in September, 2024.
+Current development is community driven, mostly through issues on
+<link xlink:href="https://codeberg.org/DocBook/docbook">the repository</link>
+and the <link xlink:href="https://docbook.org/lists/">mailing lists</link>.
+</para>
+
+<para>DocBook is normatively available as a RELAX NG Schema (with some
+additional Schematron assertions). DocBook builds on existing XML technologies:
+it uses XLink for linking, W3C XML Datatypes for atomic data types, and supports
+the use of XInclude for transclusion.</para>
 
 <note>
-<para>DocBook has been under active maintenance for more than 20 years,
+<para>DocBook has been under active maintenance for more than 30 years,
 it began life as an SGML document type definition.</para>
 </note>
 
-<para>The current DocBook released standard is version 5.1. The
-version described here is DocBook version 5.2 Candidate Release 2.
-Before submission to the OASIS standards process, the DocBook
-Technical Committee is making it available to the DocBook user
-community for review and testing.</para>
+<para>The current DocBook released standard is version 5.2. The
+version described here is DocBook version 5.2.1B1.</para>
 
-<para>The DocBook Technical Committee welcomes bug reports from the
-user community. Please send comments and requests for enhancement to
+<para>Bug reports and feature requests are welcome.
+Please send comments and requests for enhancement to
 the DocBook comments list,
-<link xlink:href="mailto:docbook-comment@lists.oasis-open.org">docbook-comment@lists.oasis-open.org</link>
+<link xlink:href="mailto:docbook@lists.docbook.org">docbook@lists.docbook.org</link>
 mailing list. Outstanding requests can be seen in the archives as well
-as in the issues tracker <link xlink:href="https://github.com/docbook/docbook/issues">on Github</link>.
+as in the
+<link xlink:href="https://codeberg.org/DocBook/docbook/issues">issue tracker</link>.
 </para>
 </section>
 
 <section>
-<title>Significant differences in 5.2</title>
+<title>Summary of differences in 5.2.1</title>
+
+<para>DocBook 5.2.1 fixes a
+<link xlink:href="https://codeberg.org/DocBook/docbook/issues/262">backwards incompatibility</link>
+accidentally introduced in DocBook 5.2. A <tag>classsynopsis</tag> is once again allowed to
+one <emphasis>or more</emphasis> <tag>ooclass</tag>, <tag>ooexception</tag>, or
+<tag>oointerface</tag> elements.</para>
+
+<para>The build system has also been updated. In the course of that update, it was discovered
+that the Schematron rules for callouts were not sufficient. Additional rules have been added
+to assert that all <tag class="attribute">arearefs</tag> on a <tag>callout</tag> point to
+an element and that all <tag class="attribute">linkend</tag> attributes on <tag>coref</tag>
+point to a <tag>co</tag>.</para>
+</section>
+
+<section>
+<title>Summary of differences in 5.2</title>
 
 <orderedlist>
 <listitem>
@@ -87,52 +105,11 @@ International Tag Set (<acronym>ITS</acronym>) schemas.</simpara>
 <simpara>Allow foreign namespace-qualified attributes on DocBook elements.
 </simpara>
 </listitem>
-</orderedlist>
-</section>
-
-<section>
-<title>Changes from DocBook 5.2 CR4 to DocBook 5.2 CR5</title>
-
-<para>Fixed the bug where the <tag class="attribute">cols</tag> attribute
-on CALS <tag>entrytbl</tag> was optional. It is required by the CALS
-specification.</para>
-
-</section>
-
-<section>
-<title>Changes from DocBook 5.2 CR3 to DocBook 5.2 CR4</title>
-
-<itemizedlist>
-<listitem>
-<para>Fix OASIS identifiers in the XML catalog.
-</para>
-</listitem>
 <listitem>
 <para>Allow <tag>info</tag> as a top-level element.
 </para>
 </listitem>
 <listitem>
-<para>Fixed inconsistencies in XInclude declarations.
-</para>
-</listitem>
-<listitem>
-<para>Small documentation improvements.
-</para>
-</listitem>
-</itemizedlist>
-
-</section>
-
-<section>
-<title>Changes from DocBook 5.2 CR2 to DocBook 5.2 CR3</title>
-
-<para>Allow attributes in foreign namespaces (and not in the DocBook, XML, XLink, or
-transclusion namespaces) to appear on any DocBook element.</para>
-
-</section>
-
-<section>
-<title>Changes from DocBook 5.2 CR1 to DocBook 5.2 CR2</title>
 <para>Updated content models so that <tag>modifier</tag> can appear
 after
 <tag>classname</tag> in <tag>ooclass</tag>,
@@ -152,22 +129,7 @@ and
 <tag>unionname</tag> in <tag>unionsynopsis</tag>,
 and <tag>typedefname</tag> in <tag>typedefsynopsis</tag>.
 </para>
-</section>
-
-<section>
-<title>Changes from DocBook 5.1 to DocBook 5.2 CR1</title>
-
-<para>The following lists describe all the changes in 5.2. For details about
-elements, attributes, and content models, please refer to the online
-documentation for the DocBook 5.2 schema in
-<link xlink:href="https://tdg.docbook.org/tdg/5.2/">DocBook 5.2: The
-Definitive Guide</link> which has been
-updated to include all these changes.</para>
-
-<simplesect>
-<title>New Elements</title>
-
-<itemizedlist>
+</listitem>
 <listitem>
 <simpara>Added new element <tag>buildtarget</tag>.
 </simpara>
@@ -266,13 +228,6 @@ elements. (But not mixtures of them).
 <simpara>Added new element <tag>unionsynopsis</tag>.
 </simpara>
 </listitem>
-</itemizedlist>
-</simplesect>
-
-<simplesect>
-<title>New Attributes</title>
-
-<itemizedlist>
 <listitem>
 <simpara>Added <code>db.trans.idfixup.attribute = "none|suffix|auto"</code>.
 </simpara>
@@ -384,13 +339,6 @@ descendant of admonitions.
 <tag>packagesynopsis</tag>.
 </simpara>
 </listitem>
-</itemizedlist>
-</simplesect>
-
-<simplesect>
-<title>Content Model Changes</title>
-
-<itemizedlist>
 <listitem>
 <simpara>Added <code>db.programmingsynopsis</code> elements to <code>db.synopsis.blocks</code>.
 </simpara>
@@ -520,13 +468,6 @@ and <tag>templatename</tag> to the <tag>methodsynopsis</tag> content model.
 <simpara>Allow <tag>optional</tag> element to nest in an <tag>optional</tag> element.
 </simpara>
 </listitem>
-</itemizedlist>
-</simplesect>
-
-<simplesect>
-<title>Other Changes</title>
-
-<itemizedlist>
 <listitem>
 <simpara>Added <code>trans</code> namespace declarations for transclusion.
 </simpara>
@@ -570,7 +511,6 @@ and <tag>templatename</tag> to the <tag>methodsynopsis</tag> content model.
 <tag>production</tag>.
 </simpara>
 </listitem>
-</itemizedlist>
-</simplesect>
+</orderedlist>
 </section>
 </article>

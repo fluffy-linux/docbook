@@ -37,6 +37,7 @@ tasks.register("schemas") {
 
 val copyBuildArtifacts = tasks.register("copyBuildArtifacts") {
   dependsOn(sdocbook)
+  inputs.files(sdocbook)
   outputs.dir(layout.buildDirectory.dir("sdocbook-${docbookVersion}"))
 
   doLast {
@@ -73,9 +74,7 @@ val stage = tasks.register<DocBookPipeline>("stage") {
       "schema" to "sdocbook",
       "prefix" to "sdocbook",
       "version" to docbookVersion,
-      "title" to "XML Catalog for DocBook Forms V${docbookVersion}",
-      "oasisVersion" to docbookVersion,
-      "oasisRelease" to "os"
+      "title" to "XML Catalog for DocBook Forms V${docbookVersion}"
   )
 }
 
