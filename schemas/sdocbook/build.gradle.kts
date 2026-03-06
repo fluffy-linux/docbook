@@ -18,7 +18,7 @@ configure<DocBookExtension> {
 }
 
 val sdocbook = tasks.register<DocBookPipeline>("buildSimplifiedDocBook") {
-  inputs.dir(layout.projectDirectory.file("src/main/relaxng"))
+  inputs.dir(layout.projectDirectory.file("src/main/sdocbook"))
   inputs.dir(layout.projectDirectory.file("../../tools"))
   outputs.dir(layout.buildDirectory.dir("tmp/sdocbook"))
 

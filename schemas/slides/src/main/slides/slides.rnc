@@ -4,7 +4,7 @@ namespace s = "http://purl.oclc.org/dsdl/schematron"
 namespace db = "http://docbook.org/ns/docbook"
 default namespace = "http://docbook.org/ns/docbook"
 
-include "../../../../sdocbook/src/main/relaxng/sdocbook.rnc" {
+include "../../../../sdocbook/src/main/sdocbook/sdocbook.rnc" {
    start = sl.slides
    db.all.blocks |= sl.speakernotes
    db.info.elements |= sl._any.html

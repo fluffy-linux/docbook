@@ -19,7 +19,7 @@ configure<DocBookExtension> {
 }
 
 val publishers = tasks.register<DocBookPipeline>("buildPublishers") {
-  inputs.dir(layout.projectDirectory.file("src/main/relaxng"))
+  inputs.dir(layout.projectDirectory.file("src/main/publishers"))
   inputs.dir(layout.projectDirectory.file("../../tools"))
   outputs.dir(layout.buildDirectory.dir("tmp/publishers"))
 

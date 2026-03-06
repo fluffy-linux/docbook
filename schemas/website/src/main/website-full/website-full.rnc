@@ -11,4 +11,4 @@ include "../../../../docbook/src/main/docbookxi/docbookxi.rnc" {
 
 include "../website/webpages.rnc"
 include "../website/rddl.rnc"
-include "../../../../dbforms/src/main/relaxng/htmlform.rnc"
+include "../../../../dbforms/src/main/dbforms/htmlform.rnc"

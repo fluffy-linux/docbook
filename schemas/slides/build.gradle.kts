@@ -25,7 +25,6 @@ val slides = tasks.register<DocBookPipeline>("buildSlides") {
   params = mapOf(
       "path" to "${layout.projectDirectory}",
       "schema" to "slides",
-      "relaxng" to "slides",
       "release" to "DocBook Slides V${docbookVersion}"
   )
 }
@@ -40,7 +39,6 @@ val slidesfull = tasks.register<DocBookPipeline>("buildSlidesFull") {
   params = mapOf(
       "path" to "${layout.projectDirectory}",
       "schema" to "slides-full",
-      "relaxng" to "slides-full",
       "release" to "DocBook Slides Full V${docbookVersion}"
   )
 }
