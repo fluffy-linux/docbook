@@ -83,7 +83,7 @@ db.audience.attribute =
 
 db.condition.attribute =
   [
-    db:refpurpose [ "provides a standard place for application-specific effectivity" ]
+    db:refpurpose [ "Provides a standard place for application-specific effectivity" ]
     dbx:description [
       db:para [
         "Many DocBook users observed that in order to add an" ~
