@@ -73,7 +73,7 @@
   </cx:trang>
 
   <p:store href="{$path}/build/tmp/{$schema}/rng/{$schema}.rng"
-           serialization="map{'method':'xml', 'indent':false()}"/>
+           serialization="map{'method':'xml', 'indent':true()}"/>
 
   <p:sink/>
 
