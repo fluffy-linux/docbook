@@ -73,7 +73,7 @@ val stage = tasks.register<DocBookPipeline>("stage") {
   params = mapOf(
       "path" to "${layout.projectDirectory}",
       "schema" to "publishers",
-      "prefix" to "publishers",
+      "prefix" to "xml/publishers",
       "version" to docbookVersion,
       "title" to "XML Catalog for DocBook Publishers V${docbookVersion}"
   )
