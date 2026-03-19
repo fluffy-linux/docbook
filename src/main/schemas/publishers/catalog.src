@@ -15,9 +15,13 @@
         catalog="catalog.xml"/>
   </group>
 
-  <group xml:base="@@DBVER@@/">
+  <group xml:base="5.2/">
     <delegateURI
         uriStartString="https://docs.oasis-open.org/docbook/publishers/v5.2/"
+        catalog="catalog.xml"/>
+
+    <delegateURI
+        uriStartString="https://docbook.org/publishers/5.2/"
         catalog="catalog.xml"/>
 
     <delegateURI
